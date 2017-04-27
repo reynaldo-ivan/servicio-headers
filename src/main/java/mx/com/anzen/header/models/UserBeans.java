@@ -2,10 +2,10 @@ package mx.com.anzen.header.models;
 
 public class UserBeans {
 	
-	private static UserBeans beans;
+	private static UserBeans beans=new UserBeans();
 	  
-	private String user;
-	private String pwd;
+	private String user="";
+	private String pwd="";
 	
 	
 	public String getUser() {

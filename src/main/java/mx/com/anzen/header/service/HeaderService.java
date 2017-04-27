@@ -1,4 +1,4 @@
-package mx.com.anzen.header.api;
+package mx.com.anzen.header.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +21,12 @@ import mx.com.anzen.header.models.UserBeans;
  
 @Repository
 @Service
-public class Operaciones {
+public class HeaderService implements IHeaderService{
 	 
 	@Autowired
 	private ConsultaBean consulta;
-	
+	 
+	 
 public UserBeans consultaJSON() {
 		   
 		Object object=null;

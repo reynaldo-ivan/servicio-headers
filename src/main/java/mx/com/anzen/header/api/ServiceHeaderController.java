@@ -3,21 +3,23 @@ package mx.com.anzen.header.api;
 import java.net.UnknownHostException;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.com.anzen.header.models.UserBeans;
- 
-
+  
 @RestController
 public class ServiceHeaderController {
- 
+	 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/headers")
     public String test(@RequestHeader(value="user") String  user,
     		@RequestHeader(value="pwd") String  pwd) throws UnknownHostException{ 
 		JSONObject jsonObject=new JSONObject();
+		 
 		
 		UserBeans beans=new UserBeans();
 		UserBeans bean1=new UserBeans();

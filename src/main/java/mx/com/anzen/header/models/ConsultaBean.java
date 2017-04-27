@@ -18,12 +18,14 @@ public class ConsultaBean {
 
 	public ConsultaBean() {
 		// TODO Auto-generated constructor stub
+		
+		System.out.println("urll  "+getRestUrl());
 	}
 	 
 	/**
 	 * Atributo usado para obtener la url del servicio
 	 * que nos va a traer las credenciales
-	 */
+	 */ 
 	@Value("${service.url}")
 	private String restUrl;
 
