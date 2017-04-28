@@ -16,22 +16,28 @@ public class ServiceHeaderController {
 	 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/headers")
-    public String test(@RequestHeader(value="user") String  user,
-    		@RequestHeader(value="pwd") String  pwd) throws UnknownHostException{ 
+    public String test(@RequestHeader(value="user", defaultValue="", required = false) String  user,
+    		@RequestHeader(value="pwd", defaultValue="", required = false) String  pwd) throws UnknownHostException{
+		System.out.println("INicio");
 		JSONObject jsonObject=new JSONObject();
-		 
+				
+		if(!user.equals("")&&!pwd.equals("")){
+			UserBeans beans=new UserBeans();
+			UserBeans bean1=new UserBeans();
+			bean1.setPwd(pwd);
+			bean1.setUser(user);
+			beans.setBeans(bean1);
+			 
+			jsonObject.put("user", user);
+			jsonObject.put("pwd", pwd);
+			System.out.println("user "+user);
+			 System.out.println("pwd "+pwd);
+			 return "OK";
+		}else{
+			return "Headers requeridos";
+		}
 		
-		UserBeans beans=new UserBeans();
-		UserBeans bean1=new UserBeans();
-		bean1.setPwd(pwd);
-		bean1.setUser(user);
-		beans.setBeans(bean1);
-		 
-		jsonObject.put("user", user);
-		jsonObject.put("pwd", pwd);
-		System.out.println("user "+user);
-		 System.out.println("pwd "+pwd);
-        return "OK";
+        
     }
 	
 	@SuppressWarnings("unchecked")
